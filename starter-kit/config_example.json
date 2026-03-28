@@ -1,0 +1,108 @@
+{
+  "_comment": "Community Data Lab — Starter Kit Configuration",
+  "_instructions": "Copy this file to config.json and fill in your geography.",
+
+  "organization": {
+    "name": "Your Organization Name",
+    "city": "Your City",
+    "state": "Your State",
+    "website": "https://yourorg.org",
+    "contact_email": "research@yourorg.org"
+  },
+
+  "geography": {
+    "_comment": "Find your FIPS codes at https://www.census.gov/library/reference/code-lists/ansi.html",
+    "state_fips": "17",
+    "county_fips": "031",
+    "state_name": "Illinois",
+    "county_name": "Cook County",
+    "city_name": "Chicago",
+    "map_center_lat": 41.8781,
+    "map_center_lon": -87.6298,
+    "map_zoom": 11
+  },
+
+  "census": {
+    "_comment": "ACS 5-Year vintage. Use the most recent available (check https://api.census.gov/data.html)",
+    "acs_year": "2023",
+    "variables": {
+      "income": {
+        "table": "B19013_001E",
+        "label": "Median Household Income"
+      },
+      "poverty": {
+        "numerator": "B17001_002E",
+        "denominator": "B17001_001E",
+        "label": "Poverty Rate"
+      },
+      "race_total": {
+        "table": "B03002_001E",
+        "label": "Total Population (Hispanic Origin by Race)"
+      },
+      "race_white_nh": {
+        "table": "B03002_003E",
+        "label": "White Non-Hispanic"
+      },
+      "cost_burden_owner_total": {
+        "table": "B25106_002E",
+        "label": "Owner-Occupied Total"
+      },
+      "cost_burden_owner_burdened": {
+        "table": "B25106_006E",
+        "label": "Owner-Occupied Cost Burdened (>30%)"
+      },
+      "cost_burden_renter_total": {
+        "table": "B25106_024E",
+        "label": "Renter-Occupied Total"
+      },
+      "cost_burden_renter_burdened": {
+        "table": "B25106_028E",
+        "label": "Renter-Occupied Cost Burdened (>30%)"
+      },
+      "uninsured_total": {
+        "table": "S2701_C01_001E",
+        "subject_table": true,
+        "label": "Total Civilian Noninstitutionalized Population"
+      },
+      "uninsured_count": {
+        "table": "S2701_C05_001E",
+        "subject_table": true,
+        "label": "Uninsured"
+      }
+    }
+  },
+
+  "gtfs": {
+    "_comment": "Download your transit agency's GTFS feed and extract to data/gtfs/",
+    "agency_name": "Your Transit Agency",
+    "feed_url": "https://your-transit-agency.com/gtfs/google_transit.zip",
+    "am_peak_start_hour": 7,
+    "am_peak_end_hour": 9
+  },
+
+  "scoring": {
+    "_comment": "Weights for composite equity vulnerability score (must sum to 1.0)",
+    "weights": {
+      "pct_nonwhite": 0.25,
+      "poverty_rate": 0.25,
+      "pct_cost_burdened": 0.20,
+      "pct_youth": 0.15,
+      "transit_access_inverse": 0.15
+    },
+    "grade_thresholds": {
+      "_comment": "Percentile thresholds for A-F grades (A = highest need)",
+      "A": 0.80,
+      "B": 0.60,
+      "C": 0.40,
+      "D": 0.20
+    }
+  },
+
+  "data_paths": {
+    "raw": "data/raw",
+    "processed": "data/processed",
+    "gtfs": "data/gtfs",
+    "tracts_geojson": "data/raw/tracts.geojson",
+    "output_viewer": "output/equity_viewer.html"
+  }
+}
