@@ -1,0 +1,21 @@
+# Data (generated, fetched, or sensitive)
+config.json
+data/
+output/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo

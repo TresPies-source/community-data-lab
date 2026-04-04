@@ -84,10 +84,9 @@
     "_comment": "Weights for composite equity vulnerability score (must sum to 1.0)",
     "weights": {
       "pct_nonwhite": 0.25,
-      "poverty_rate": 0.25,
-      "pct_cost_burdened": 0.20,
-      "pct_youth": 0.15,
-      "transit_access_inverse": 0.15
+      "poverty_rate": 0.30,
+      "pct_cost_burdened": 0.25,
+      "transit_access_inverse": 0.20
     },
     "grade_thresholds": {
       "_comment": "Percentile thresholds for A-F grades (A = highest need)",

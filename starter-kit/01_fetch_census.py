@@ -190,13 +190,25 @@ def main():
                 continue
 
             total_pop = safe_int(row[header.index("S2701_C01_001E")])
-            unins_count = safe_int(row[header.index("S2701_C05_001E")])
+            # S2701_C05_001E returns a percentage, not a count
+            raw_pct = row[header.index("S2701_C05_001E")]
+            pct_uninsured = None
+            unins_count = None
+            try:
+                if raw_pct is not None and raw_pct not in ("", "*", "-"):
+                    val = float(raw_pct)
+                    if val != -666666666 and 0 <= val <= 100:
+                        pct_uninsured = round(val, 1)
+                        if total_pop is not None:
+                            unins_count = int(round(total_pop * pct_uninsured / 100))
+            except (ValueError, TypeError):
+                pass
 
             uninsured.append({
                 "geoid": geoid,
                 "total_population": total_pop,
                 "uninsured_count": unins_count,
-                "pct_uninsured": safe_pct(unins_count, total_pop),
+                "pct_uninsured": pct_uninsured,
                 "vintage": f"ACS {year} 5-Year"
             })
 

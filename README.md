@@ -34,9 +34,9 @@ A reproducible research workflow for nonprofits:
 4. **Output Production** — Standalone HTML data viewers, policy briefs, funder-ready narratives
 5. **Maintenance** — Refresh schedules, data quality monitoring, institutional memory
 
-### Curriculum (6-week cohort)
+### Curriculum (6-week cohort, in development)
 
-A structured training program:
+A structured training program (lesson plans and exercises coming Q3 2026):
 
 - **Week 1:** Spatial equity questions — framing what's answerable
 - **Week 2:** Public data landscape — Census, transit, education, health, housing sources by state
@@ -63,7 +63,7 @@ AI prompt templates for each stage of the research workflow. Designed for Claude
 
 ## Proof of Concept
 
-Commonwealth Development (Madison, WI) — a 5-person CDC — used this methodology to produce:
+Commonwealth Development (Madison, WI) used this methodology to produce:
 
 - **7 causal research question analyses** answering "does X predict chronic school absence after controlling for income?" across transit, housing, health, and childcare domains
 - **11-layer interactive equity data viewer** (3.8 MB standalone HTML, no server, PDF export)
